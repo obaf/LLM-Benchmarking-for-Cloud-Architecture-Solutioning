@@ -1,6 +1,6 @@
-# vb_llm-network — AWS Advanced Networking MCQ Benchmark with Promptfoo
+# AWS Advanced Networking MCQ Benchmark with Promptfoo
 
-A small reproducible benchmark that uses [Promptfoo](https://www.promptfoo.dev/) to
+A reproducible benchmark that uses [Promptfoo](https://www.promptfoo.dev/) to
 evaluate three LLMs on AWS Advanced Networking Specialty–style multiple-choice
 questions (MCQs). All three models are accessed through
 [OpenRouter](https://openrouter.ai/) so a single API key is enough.
