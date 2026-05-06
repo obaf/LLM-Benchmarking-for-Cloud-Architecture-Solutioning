@@ -1,4 +1,4 @@
-# AWS Advanced Networking MCQ Benchmark with Promptfoo
+# AWS Cloud Architecture Solutioning (Networking) MCQ Benchmark with Promptfoo
 
 A reproducible benchmark that uses [Promptfoo](https://www.promptfoo.dev/) to
 evaluate three LLMs on AWS Advanced Networking Specialty–style multiple-choice
