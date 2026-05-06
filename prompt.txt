@@ -1,0 +1,8 @@
+Answer the following multiple choice question.
+Return ONLY a single letter: A, B, C, or D.
+Do NOT include any explanation, punctuation, or extra text.
+Your entire response must be exactly one character.
+
+{{prompt}}
+
+{{choices}}

@@ -1,0 +1,247 @@
+id,domain,prompt,choices,answer,"[openrouter:openai/gpt-5.4-mini] prompt.txt: Answer the following multiple choice question.
+Return ONLY a single letter: A, B, C, or D.
+Do NOT include any explanation, punctuation, or extra text.
+Your entire response must be exactly one character.
+
+{{prompt}}
+
+{{choices}}",Status,Score,Named Scores,Grader Reason,Comment,"[openrouter:google/gemini-3-flash-preview] prompt.txt: Answer the following multiple choice question.
+Return ONLY a single letter: A, B, C, or D.
+Do NOT include any explanation, punctuation, or extra text.
+Your entire response must be exactly one character.
+
+{{prompt}}
+
+{{choices}}",Status,Score,Named Scores,Grader Reason,Comment,"[openrouter:deepseek/deepseek-chat-v3.1] prompt.txt: Answer the following multiple choice question.
+Return ONLY a single letter: A, B, C, or D.
+Do NOT include any explanation, punctuation, or extra text.
+Your entire response must be exactly one character.
+
+{{prompt}}
+
+{{choices}}",Status,Score,Named Scores,Grader Reason,Comment
+q_190,network,"Question #190 Topic 1: A company is building an API-based application on AWS and is using a microservices architecture for the design. The company is using a multi-account AWS environment that includes a separate AWS account for each microservice development team. Each team hosts its microservice in its own VPC that contains Amazon EC2 instances behind a Network Load Balancer (NLB). A network engineer needs to use Amazon API Gateway in a shared services account to create an HTTP API to expose these microservices to external applications. The network engineer must ensure that access to the microservices can occur only over a private network. Additionally, the company must be able to control which entities from its internal network can connect to the microservices. In the future, the company will create more microservices that the company must be able to integrate with the application. What is the MOST secure solution that meets these requirements?
+A. Create an Application Load Balancer (ALB) in a VPC in the shared services account. Configure the integration to the API Gateway API by using a VPC link. Associate the VPC link with the ALB. Create a VPC endpoint service in each microservice account. Create an AWS PrivateLink endpoint for those services in the shared services account. Add the elastic network interface IP addresses of the VPC endpoint as targets for the target group of the ALB.
+B. Create an Application Load Balancer (ALB) in a VPC in the shared services account. Configure the integration to the API Gateway API by using a VPC link. Connect all the VPCs to each other by using a central transit gateway. Add the IP addresses of the NLB as IP-based targets in the ALB target group.
+C. Configure the integration to the API Gateway API by using HTTP-based integration. Connect all the VPCs to each other by using a central transit gateway. Create a separate HTTP integration to each NLB for each microservice. Add the HTTP endpoint of the NLB as the endpoint URL in the HTTP integration.
+D. Configure the integration to the API Gateway API by using VPC link integration. Connect all the VPCs to each other by using a central transit gateway. Create a separate VPC link to each NLB for each microservice. Add the HTTP endpoint of the NLB as the endpoint URL in the VPC link integration.","A
+B
+C
+D",A,A,PASS,1,,All assertions passed,,A,PASS,1,,All assertions passed,,B,FAIL,0,,"Custom function returned false
+// Gemini thinks for a long time then outputs the letter last
+// Extract the LAST A-D letter in the output
+const matches = output.match(/[A-D]/g);
+const letter = matches ? matches[matches.length - 1] : null;
+return letter === context.vars.answer;",
+q_192,network,"Question #192 Topic 1: An international company wants to implement a multi-site hybrid infrastructure... (truncated for brevity but keep full text in actual file)
+A. Advertise only the aggregate route for the company's entire AWS environment.
+B. Advertise VPC-specific CIDR prefixes from only the local Region. Additionally, advertise the aggregate route for the company’s entire AWS environment.
+C. Advertise all the specific VPC CIDR blocks from both Regions.
+D. Advertise both Regional aggregate prefixes. Configure custom BGP communities on the routes advertised toward the data center.","A
+B
+C
+D",B,D,FAIL,0,,"Custom function returned false
+// Gemini thinks for a long time then outputs the letter last
+// Extract the LAST A-D letter in the output
+const matches = output.match(/[A-D]/g);
+const letter = matches ? matches[matches.length - 1] : null;
+return letter === context.vars.answer;",,D,FAIL,0,,"Custom function returned false
+// Gemini thinks for a long time then outputs the letter last
+// Extract the LAST A-D letter in the output
+const matches = output.match(/[A-D]/g);
+const letter = matches ? matches[matches.length - 1] : null;
+return letter === context.vars.answer;",,A,FAIL,0,,"Custom function returned false
+// Gemini thinks for a long time then outputs the letter last
+// Extract the LAST A-D letter in the output
+const matches = output.match(/[A-D]/g);
+const letter = matches ? matches[matches.length - 1] : null;
+return letter === context.vars.answer;",
+q_194,network,"Question #194 Topic 1: A company is using an Amazon CloudFront distribution that is configured with an Application Load Balancer (ALB) as an origin... Which solution will meet these requirements in the MOST operationally efficient way?
+A. Add an inbound rule to the ALB's security group to allow the AWS managed prefix list for CloudFront.
+B. Add an inbound rule to the network ACLs that are associated with the ALB's subnets. Use the AWS managed prefix list for CloudFront as the source in the rule.
+C. Configure CloudFront to add a custom HTTP header to the requests that CloudFront sends to the ALB.
+D. Associate an AWS WAF web ACL with the ALB. Configure the AWS WAF rules to allow traffic from the CloudFront IP set. Automatically update the CloudFront IP set by using an AWS Lambda function.","A
+B
+C
+D",A,C,FAIL,0,,"Custom function returned false
+// Gemini thinks for a long time then outputs the letter last
+// Extract the LAST A-D letter in the output
+const matches = output.match(/[A-D]/g);
+const letter = matches ? matches[matches.length - 1] : null;
+return letter === context.vars.answer;",,A,PASS,1,,All assertions passed,,A,PASS,1,,All assertions passed,
+q_195,network,"Question #195 Topic 1: A company has AWS accounts in an organization in AWS Organizations... Which solution will meet these requirements?
+A. Create a new AWS Config rule...
+B. Create a new SCP in Organizations...
+C. Create an AWS Lambda function...
+D. Create an Amazon EventBridge rule...","A
+B
+C
+D",B,D,FAIL,0,,"Custom function returned false
+// Gemini thinks for a long time then outputs the letter last
+// Extract the LAST A-D letter in the output
+const matches = output.match(/[A-D]/g);
+const letter = matches ? matches[matches.length - 1] : null;
+return letter === context.vars.answer;",,B,PASS,1,,All assertions passed,,B,PASS,1,,All assertions passed,
+q_196,network,"Question #196 Topic 1: A company has an application that runs on premises... Which solution will meet the connectivity requirements with the LEAST operational overhead?
+A. Configure a private VIF...
+B. Create a transit gateway... configure transit VIF...
+C. Configure a public VIF...
+D. Create a transit gateway with firewall...","A
+B
+C
+D",B,C,FAIL,0,,"Custom function returned false
+// Gemini thinks for a long time then outputs the letter last
+// Extract the LAST A-D letter in the output
+const matches = output.match(/[A-D]/g);
+const letter = matches ? matches[matches.length - 1] : null;
+return letter === context.vars.answer;",,B,PASS,1,,All assertions passed,,B,PASS,1,,All assertions passed,
+q_197,network,"Question #197 Topic 1: A company has established connectivity between its on-premises data center in Paris... Which set of steps should a network engineer take?
+A. ...
+B. ...
+C. ...
+D. ...","A
+B
+C
+D",C,A,FAIL,0,,"Custom function returned false
+// Gemini thinks for a long time then outputs the letter last
+// Extract the LAST A-D letter in the output
+const matches = output.match(/[A-D]/g);
+const letter = matches ? matches[matches.length - 1] : null;
+return letter === context.vars.answer;",,B,FAIL,0,,"Custom function returned false
+// Gemini thinks for a long time then outputs the letter last
+// Extract the LAST A-D letter in the output
+const matches = output.match(/[A-D]/g);
+const letter = matches ? matches[matches.length - 1] : null;
+return letter === context.vars.answer;",,D,FAIL,0,,"Custom function returned false
+// Gemini thinks for a long time then outputs the letter last
+// Extract the LAST A-D letter in the output
+const matches = output.match(/[A-D]/g);
+const letter = matches ? matches[matches.length - 1] : null;
+return letter === context.vars.answer;",
+q_198,network,"Question #198 Topic 1: Company A recently acquired Company B... Which solution will meet these requirements?
+A. ...
+B. ...
+C. ...
+D. ...","A
+B
+C
+D",B,A,FAIL,0,,"Custom function returned false
+// Gemini thinks for a long time then outputs the letter last
+// Extract the LAST A-D letter in the output
+const matches = output.match(/[A-D]/g);
+const letter = matches ? matches[matches.length - 1] : null;
+return letter === context.vars.answer;",,B,PASS,1,,All assertions passed,,D,FAIL,0,,"Custom function returned false
+// Gemini thinks for a long time then outputs the letter last
+// Extract the LAST A-D letter in the output
+const matches = output.match(/[A-D]/g);
+const letter = matches ? matches[matches.length - 1] : null;
+return letter === context.vars.answer;",
+q_200,network,"Question #200 Topic 1: A company is migrating an application to AWS... Which solution will meet these requirements with the LEAST amount of ongoing change?
+A. Configure a private NAT gateway...
+B. Configure an elastic network interface...
+C. Configure EC2 instances as proxies...
+D. Configure an ALB...","A
+B
+C
+D",A,B,FAIL,0,,"Custom function returned false
+// Gemini thinks for a long time then outputs the letter last
+// Extract the LAST A-D letter in the output
+const matches = output.match(/[A-D]/g);
+const letter = matches ? matches[matches.length - 1] : null;
+return letter === context.vars.answer;",,A,PASS,1,,All assertions passed,,D,FAIL,0,,"Custom function returned false
+// Gemini thinks for a long time then outputs the letter last
+// Extract the LAST A-D letter in the output
+const matches = output.match(/[A-D]/g);
+const letter = matches ? matches[matches.length - 1] : null;
+return letter === context.vars.answer;",
+q_201,network,"Question #201 Topic 1: A company has a highly available application hosted in multiple VPCs... Which architecture will meet the requirements with the LEAST operational overhead?
+A. ...
+B. ...
+C. ...
+D. ...","A
+B
+C
+D",D,A,FAIL,0,,"Custom function returned false
+// Gemini thinks for a long time then outputs the letter last
+// Extract the LAST A-D letter in the output
+const matches = output.match(/[A-D]/g);
+const letter = matches ? matches[matches.length - 1] : null;
+return letter === context.vars.answer;",,A,FAIL,0,,"Custom function returned false
+// Gemini thinks for a long time then outputs the letter last
+// Extract the LAST A-D letter in the output
+const matches = output.match(/[A-D]/g);
+const letter = matches ? matches[matches.length - 1] : null;
+return letter === context.vars.answer;",,D,PASS,1,,All assertions passed,
+q_202,network,"Question #202 Topic 1: A company has a data center with Direct Connect... How will AWS route traffic to 172.16.1.0/24?
+A. VIF1
+B. VIF2
+C. Round robin
+D. Flow control","A
+B
+C
+D",B,A,FAIL,0,,"Custom function returned false
+// Gemini thinks for a long time then outputs the letter last
+// Extract the LAST A-D letter in the output
+const matches = output.match(/[A-D]/g);
+const letter = matches ? matches[matches.length - 1] : null;
+return letter === context.vars.answer;",,B,PASS,1,,All assertions passed,,A,FAIL,0,,"Custom function returned false
+// Gemini thinks for a long time then outputs the letter last
+// Extract the LAST A-D letter in the output
+const matches = output.match(/[A-D]/g);
+const letter = matches ? matches[matches.length - 1] : null;
+return letter === context.vars.answer;",
+q_203,network,"Question #203 Topic 1: A company is planning to host external websites on AWS... What is the MOST operationally efficient solution?
+A. CloudFormation + GuardDuty
+B. CLI + Lambda cleanup
+C. Firewall Manager for central control
+D. CloudFormation + Firewall Manager + GuardDuty","A
+B
+C
+D",D,D,PASS,1,,All assertions passed,,D,PASS,1,,All assertions passed,,D,PASS,1,,All assertions passed,
+q_204,network,"Question #204 Topic 1: A company has an application behind an NLB... Traffic must stay in same AZ unless no healthy targets exist. Which solution?
+A. Weighted DNS
+B. Disable cross-zone LB
+C. Failover DNS
+D. Sticky sessions","A
+B
+C
+D",B,B,PASS,1,,All assertions passed,,B,PASS,1,,All assertions passed,,B,PASS,1,,All assertions passed,
+q_205,network,"Question #205 Topic 1: A company needs to protect against botnet command and control traffic from EC2 instances. Which solution?
+A. AWS Shield Advanced
+B. Route 53 Resolver DNS Firewall
+C. AWS WAF Bot Control
+D. Systems Manager","A
+B
+C
+D",B,B,PASS,1,,All assertions passed,,B,PASS,1,,All assertions passed,,B,PASS,1,,All assertions passed,
+q_206,network,"Question #206 Topic 1: A company has two on-prem data centers... connection disruptions between them. Which solution improves reliability?
+A. New DX gateway + SiteLink
+B. Public VIF + SiteLink
+C. Enable SiteLink on existing connections
+D. Enable SiteLink on transit VIFs","A
+B
+C
+D",B,C,FAIL,0,,"Custom function returned false
+// Gemini thinks for a long time then outputs the letter last
+// Extract the LAST A-D letter in the output
+const matches = output.match(/[A-D]/g);
+const letter = matches ? matches[matches.length - 1] : null;
+return letter === context.vars.answer;",,C,FAIL,0,,"Custom function returned false
+// Gemini thinks for a long time then outputs the letter last
+// Extract the LAST A-D letter in the output
+const matches = output.match(/[A-D]/g);
+const letter = matches ? matches[matches.length - 1] : null;
+return letter === context.vars.answer;",,A,FAIL,0,,"Custom function returned false
+// Gemini thinks for a long time then outputs the letter last
+// Extract the LAST A-D letter in the output
+const matches = output.match(/[A-D]/g);
+const letter = matches ? matches[matches.length - 1] : null;
+return letter === context.vars.answer;",
+q_211,network,"Question #211 Topic 1: A company runs apps across 50 AWS accounts and multiple Regions... Which solution provides connectivity from on-prem and inter-VPC across Regions?
+A. Private VIF + VGW
+B. Private VIF + DXGW + VGWs
+C. Transit VIF + DXGW + TGWs
+D. VPN over public VIF","A
+B
+C
+D",C,C,PASS,1,,All assertions passed,,C,PASS,1,,All assertions passed,,C,PASS,1,,All assertions passed,
